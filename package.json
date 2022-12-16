@@ -1,0 +1,25 @@
+{
+  "name": "employee-tracker-with-sql",
+  "version": "1.0.0",
+  "description": "An employee database CMS app using Node.js, Inquirer and MySQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Howell-kc/Employee-Tracker-with-SQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-Howell-kc/Employee-Tracker-with-SQL/issues"
+  },
+  "homepage": "https://github.com/J-Howell-kc/Employee-Tracker-with-SQL#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "dotenv": "^16.0.3",
+    "inquirer": "8.0.0",
+    "mysql2": "^2.3.3"
+  }
+}
