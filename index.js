@@ -54,15 +54,67 @@ function viewDepartment() {
 }
 function viewRole() {
     db.query("Select * from role", (error, data) => {
-        console.table(data);
+        console.table(role);
         menu();
     });
 }
 function viewEmployee() {
     db.query("Select * from employee", (error, data) => {
-        console.table(data);
+        console.table(emp);
         menu();
     })
 }
 
 menu();
+
+// add department
+
+{type: "input",
+message: "What is the department name?",
+name: "dept"
+}
+
+//add role
+
+{type: "input",
+message: "What is the name of the role?",
+name: "role"
+},
+
+{type: "input",
+message: "What is the role's salary?",
+name: "salary"
+}
+
+{type: "list",
+message: "What is the department this role belongs to?",
+name: "dept"
+choices: [
+    ""
+]
+}
+
+//add employee
+
+{
+    message: "What is the employee first name?",
+    name: "firstname",
+    type: "input"
+},
+{
+    message: "What is the employee last name?",
+    name: "lastname",
+    type: "input"
+},
+{
+    message: "What is the employee role?",
+    name: "emp_role",
+    type: "list",
+    choices: []
+},
+{
+    message: "Who is the manager of this employee?",
+    name: "emp_manager",
+    type: "list",
+    choices: []
+}
