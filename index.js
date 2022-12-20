@@ -47,7 +47,7 @@ function menu() {
       } else if (res.action === "Add an Employee") {
         addEmployee();
       } else if (res.action === "Update Employee Role") {
-        updateEmployeeRole();        
+        updateEmployee();        
       }
     });
 }
@@ -134,7 +134,7 @@ function addEmployee () {
         name: "manager_id"
         }
     ]) .then(res => {
-        db.query('INSERT INTO role (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)' , [res.first_name, res.last_name, res.role_id, res.manager_id], (error,data) => {
+        db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)' , [res.first_name, res.last_name, res.role_id, res.manager_id], (error,data) => {
             console.log(error)
             console.table(data)
             menu();
@@ -144,3 +144,22 @@ function addEmployee () {
 
 //update employee
 
+function updateEmployee () {
+    inquirer.prompt([
+        {type:'input',
+        message: 'What employee do you want to update?',
+        name: 'employee_id',
+    }
+    , {
+        type:'input',
+        message: 'What is the new role ID?',
+        name:'role_id',
+    }
+    ])
+    .then (res => {
+        db.query('UPDATE employee SET role_id = ? WHERE id= ?', [res.role_id, res.employee_id], (error, data) => {
+            console.table(data)
+            menu();
+        })
+    })
+}
